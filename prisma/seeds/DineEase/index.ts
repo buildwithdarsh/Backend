@@ -1,0 +1,1 @@
+export { seedDineEaseOrg } from './organisation';

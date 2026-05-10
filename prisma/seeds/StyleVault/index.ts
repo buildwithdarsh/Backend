@@ -1,0 +1,1 @@
+export { seedStyleVaultOrg } from './organisation';

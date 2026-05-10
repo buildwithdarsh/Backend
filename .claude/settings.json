@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/alex/Dev/Personal/Darsh Gupta/$dir/**)",
+      "Bash(find /Users/alex/Dev/Personal/Darsh Gupta/WatchRoom -type f \\\\\\(-name *Login* -o -name *login* -o -name *auth* -o -name *Auth* \\\\\\) \\\\\\(-name *.tsx -o -name *.ts \\\\\\))",
+      "Bash(find /Users/alex/Dev/Personal/Darsh Gupta/BurgerEmpire -type f -name AuthModal* \\\\\\(-name *.tsx -o -name *.ts \\\\\\))",
+      "Bash(git merge:*)"
+    ]
+  }
+}

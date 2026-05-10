@@ -1,0 +1,1 @@
+export { seedZenMatOrg } from './organisation';

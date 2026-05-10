@@ -1,0 +1,54 @@
+import { PrismaClient } from '@prisma/client';
+import { seedOrganization, OrgSettingEntry } from '../Shared';
+
+const QUICKAPPS_SETTINGS: OrgSettingEntry[] = [
+  // Branding
+  { group: 'branding', key: 'name', value: '"QuickApps"', type: 'string', label: 'Business display name' },
+  { group: 'branding', key: 'tagline', value: '"Website to app in 15 minutes"', type: 'string', label: 'Tagline' },
+  { group: 'branding', key: 'primary_color', value: '"#6366F1"', type: 'string', label: 'Primary brand color' },
+  { group: 'branding', key: 'secondary_color', value: '"#10B981"', type: 'string', label: 'Secondary brand color' },
+  { group: 'branding', key: 'currency', value: '"INR"', type: 'string', label: 'Currency code' },
+  { group: 'branding', key: 'currency_symbol', value: '"₹"', type: 'string', label: 'Currency symbol' },
+  { group: 'branding', key: 'timezone', value: '"Asia/Kolkata"', type: 'string', label: 'Timezone' },
+  { group: 'branding', key: 'logo_url', value: '""', type: 'string', label: 'Logo URL' },
+  // Auth
+  { group: 'auth', key: 'primary_login_id', value: '"email"', type: 'string', label: 'Primary login identifier' },
+  { group: 'auth', key: 'require_email_verification', value: 'true', type: 'boolean', label: 'Require email verification' },
+  { group: 'auth', key: 'google_login_enabled', value: 'true', type: 'boolean', label: 'Google login enabled' },
+  { group: 'auth', key: 'allow_social_login', value: 'true', type: 'boolean', label: 'Allow social login' },
+  // Features
+  { group: 'features', key: 'subscription_enabled', value: 'true', type: 'boolean', label: 'Subscription enabled' },
+  { group: 'features', key: 'reviews_enabled', value: 'true', type: 'boolean', label: 'Reviews enabled' },
+  { group: 'features', key: 'referral_enabled', value: 'true', type: 'boolean', label: 'Referral system enabled' },
+  { group: 'features', key: 'referral_points', value: '500', type: 'number', label: 'Points awarded for referral' },
+  // Checkout
+  { group: 'checkout', key: 'online_pay_enabled', value: 'true', type: 'boolean', label: 'Online payment enabled' },
+  { group: 'checkout', key: 'cod_enabled', value: 'false', type: 'boolean', label: 'Cash on delivery enabled' },
+  // Payments
+  { group: 'payments', key: 'emi_enabled', value: 'false', type: 'boolean', label: 'EMI payments enabled' },
+  // Tax
+  { group: 'tax', key: 'rate', value: '18', type: 'number', label: 'Default tax rate (%)' },
+  { group: 'tax', key: 'label', value: '"GST"', type: 'string', label: 'Tax label' },
+  { group: 'tax', key: 'inclusive', value: 'true', type: 'boolean', label: 'Prices include tax' },
+];
+
+export async function seedQuickAppsOrg(
+  prisma: PrismaClient,
+  plans: Array<{ id: string; slug: string }>,
+  superAdminPassword: string,
+) {
+  console.log('\n--- Onboarding QuickApps ---');
+  const org = await seedOrganization(prisma, {
+    name: 'QuickApps',
+    slug: 'quickapps',
+    planSlug: 'pro',
+    adminEmail: 'quickapps@techzunction.com',
+    adminName: 'QuickApps Admin',
+    adminPassword: superAdminPassword,
+    settings: QUICKAPPS_SETTINGS,
+    plans,
+    storefrontKey: 'tz_22018e605b6c3812ef599138809ac2ed',
+  });
+
+  return org;
+}

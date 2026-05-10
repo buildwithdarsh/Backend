@@ -1,0 +1,1 @@
+export { seedAutoCareHubOrg } from './organisation';

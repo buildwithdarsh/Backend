@@ -1,0 +1,1 @@
+export { seedQuickAppsOrg } from './organisation';

@@ -1,0 +1,1 @@
+export { seedFitZoneOrg } from './organisation';

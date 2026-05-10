@@ -1,0 +1,42 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+
+# env files
+.env
+.env.*
+!.env.example
+
+# prisma
+/generated/prisma
+
+# typescript
+*.tsbuildinfo
+
+# testing
+/coverage
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# misc
+*.pem
+.vercel
+gdrive-service-account.json
+seed-credentials.json
+.env*.local

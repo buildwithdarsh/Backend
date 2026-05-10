@@ -1,0 +1,1 @@
+export { seedLearnProAcademyOrg } from './organisation';

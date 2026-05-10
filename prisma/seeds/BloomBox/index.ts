@@ -1,0 +1,1 @@
+export { seedBloomBoxOrg } from './organisation';
